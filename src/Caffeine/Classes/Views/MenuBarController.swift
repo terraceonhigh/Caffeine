@@ -7,7 +7,6 @@
 
 import Cocoa
 import Combine
-import Sparkle
 import SwiftUI
 
 @MainActor
@@ -16,10 +15,8 @@ class MenuBarController: NSObject {
     private var viewModel: CaffeineViewModel
     private var preferencesWindow: NSWindow?
     private var cancellables = Set<AnyCancellable>()
-    private let updaterController: SPUStandardUpdaterController
 
-    init(updaterController: SPUStandardUpdaterController) {
-        self.updaterController = updaterController
+    override init() {
         self.viewModel = CaffeineViewModel()
         super.init()
         self.setupMenuBar()
@@ -155,15 +152,6 @@ class MenuBarController: NSObject {
         aboutItem.target = self
         menu.addItem(aboutItem)
 
-        // Update
-        let updatesItem = NSMenuItem(
-            title: String(localized: "Check for Updates..."),
-            action: #selector(checkForUpdates(_:)),
-            keyEquivalent: ""
-        )
-        updatesItem.target = self
-        menu.addItem(updatesItem)
-
         menu.addItem(NSMenuItem.separator())
 
         // Quit
@@ -190,11 +178,6 @@ class MenuBarController: NSObject {
     @objc
     private func showPreferences(_: Any?) {
         self.showPreferencesWindow()
-    }
-
-    @objc
-    private func checkForUpdates(_ sender: Any?) {
-        self.updaterController.checkForUpdates(sender)
     }
 
     private func showPreferencesWindow() {
