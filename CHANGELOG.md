@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The menu bar toggle now prevents idle **system** sleep while letting the display dim and sleep (equivalent to `caffeinate -i`), instead of keeping the display awake (`caffeinate -d`).
 - Improved Ukrainian translation.
 
+### Removed
+
+- Sparkle auto-updater and the "Check for Updates..." menu item. This fork does not distribute updates through the original Caffeine's appcast, so the update mechanism (and its network/mach-lookup sandbox entitlements) has been dropped.
+
 ### Fixed
 
 - Timer no longer stays active and shows negative seconds after the Mac sleeps past the activation period.
