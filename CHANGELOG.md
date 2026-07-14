@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- The menu bar toggle now prevents idle **system** sleep while letting the display dim and sleep (equivalent to `caffeinate -i`), instead of keeping the display awake (`caffeinate -d`).
 - Improved Ukrainian translation.
 
 ### Fixed
