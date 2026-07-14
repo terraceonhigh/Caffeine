@@ -37,3 +37,4 @@ if [ "$STATUS" != "Accepted" ]; then
 fi
 
 xcrun stapler staple "$ARTIFACT"
+xcrun stapler validate "$ARTIFACT"
